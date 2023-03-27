@@ -49,8 +49,8 @@ app.put('/', (req, res) => {
     //res.setHeader('Access-Control-Allow-Methods', 'GET,PUT');
     //res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   res.json(req.body);
-  console.log(res);
-  return res.status;
+  //console.log(res);
+  //return res.status;
 });
 
 //app.use(bodyParser.urlencoded({ extended: true }))
