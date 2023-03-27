@@ -7,11 +7,9 @@ const port = 3000
 
 // Static Files
 app.use(express.static('public'))
-app.use('/css', express.static(__dirname + 'public/css'))
-app.use('/img', express.static(__dirname + 'public/img'))
-app.use('/js', express.static(__dirname + 'public/js'))
+app.use('/json', express.static(__dirname + 'public/json'))
 
-app.get('/data.json', (req, res) => {
+app.get('/json/data.json', (req, res) => {
   fs.readFile('data.json', 'utf8', (err, data) => {
     if (err) {
       console.error(err);
