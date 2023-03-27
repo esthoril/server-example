@@ -50,6 +50,7 @@ app.put('/', (req, res) => {
     //res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   res.json(req.body);
   console.log(res);
+  return res;
 });
 
 //app.use(bodyParser.urlencoded({ extended: true }))
