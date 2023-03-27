@@ -20,7 +20,7 @@ app.use(express.static('public'))
 app.use('/json', express.static(__dirname + 'public/json'))
 
 app.get('/json/data.json', (req, res) => {
-  fs.readFile('data.json', 'utf8', (err, data) => {
+  fs.readFile('/json/data.json', 'utf8', (err, data) => {
     if (err) {
       console.error(err);
       res.status(500).send('Error reading data.json');
@@ -36,7 +36,7 @@ app.get('/json/data.json', (req, res) => {
 
 // Route to handle PUT requests to update the JSON file
 app.put('/json/data.json', (req, res) => {
-  fs.writeFile('data.json', JSON.stringify(req.body), 'utf8', err => {
+  fs.writeFile('/json/data.json', JSON.stringify(req.body), 'utf8', err => {
     if (err) {
       console.error(err);
       res.status(500).send('Error writing to data.json');
