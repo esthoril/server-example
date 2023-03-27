@@ -10,7 +10,7 @@ const port = 3000
 //app.use(cors());
 app.use(cors({
   origin: 'http://localhost:3000',
-  methods: ['GET', 'POST'], // allow GET and POST requests
+  methods: ['GET', 'PUT', 'POST'], // allow GET and POST requests
   allowedHeaders: ['Content-Type', 'Authorization'] // allow requests with these headers
 }));
 
