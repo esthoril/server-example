@@ -1,13 +1,19 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const fs = require('fs');
-//const cors = require('cors');
+const cors = require('cors');
 
 const app = express()
 const port = 3000
 
 // CORS
 //app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:3000',
+  methods: ['GET', 'POST'], // allow GET and POST requests
+  allowedHeaders: ['Content-Type', 'Authorization'] // allow requests with these headers
+}));
+
 
 // Static Files
 app.use(express.static('public'))
@@ -21,9 +27,9 @@ app.get('/json/data.json', (req, res) => {
       return;
     }
 
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET,PUT');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    //res.setHeader('Access-Control-Allow-Origin', '*');
+    //res.setHeader('Access-Control-Allow-Methods', 'GET,PUT');
+    //res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     res.json(JSON.parse(data));
   });
 });
