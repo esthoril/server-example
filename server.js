@@ -19,8 +19,8 @@ app.use(cors({
 app.use(express.static('public'))
 app.use('/json', express.static(__dirname + 'public/json'))
 
-app.get('/json/data.json', (req, res) => {
-  console.log("GET received")
+app.get('/', (req, res) => {
+  console.log("GET received");
   fs.readFile('/json/data.json', 'utf8', (err, data) => {
     if (err) {
       console.error(err);
@@ -36,7 +36,7 @@ app.get('/json/data.json', (req, res) => {
 });
 
 // Route to handle PUT requests to update the JSON file
-app.put('/json/data.json', (req, res) => {
+app.put('/', (req, res) => {
   console.log("PUT received")
   //fs.writeFile('/json/data.json', JSON.stringify(req.body), 'utf8', err => {
   //  if (err) {
