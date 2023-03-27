@@ -34,6 +34,21 @@ app.get('/json/data.json', (req, res) => {
   });
 });
 
+// Route to handle PUT requests to update the JSON file
+app.put('/json/data.json', (req, res) => {
+  fs.writeFile('data.json', JSON.stringify(req.body), 'utf8', err => {
+    if (err) {
+      console.error(err);
+      res.status(500).send('Error writing to data.json');
+      return;
+    }
+
+    //res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    //res.setHeader('Access-Control-Allow-Methods', 'GET,PUT');
+    //res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.json(req.body);
+  });
+});
 
 //app.use(bodyParser.urlencoded({ extended: true }))
 
